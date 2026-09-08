@@ -19,7 +19,13 @@ const secciones = [
 function App() {
   const [seccionActiva, setSeccionActiva] = useState('velocidad')
   const [menuAbierto, setMenuAbierto] = useState(false)
+  const [mostrarSaludo, setMostrarSaludo] = useState(() => !localStorage.getItem('saludoVisto'))
   const actual = secciones.find(s => s.id === seccionActiva)
+
+  const cerrarSaludo = () => {
+    localStorage.setItem('saludoVisto', 'true')
+    setMostrarSaludo(false)
+  }
 
   const seleccionar = (id) => {
     setSeccionActiva(id)
@@ -90,10 +96,18 @@ function App() {
 
       {/* Contenido principal */}
       <main className="flex-1 p-4 sm:p-6 flex flex-col items-center gap-6">
-        <div className="w-full max-w-sm bg-gray-800/50 border border-gray-700 rounded-2xl p-5 text-center">
-          <p className="text-lg sm:text-xl text-purple-400 font-semibold m-0">Hola! Bienvenido a la app de Fisica</p>
-          <p className="text-sm text-gray-400 mt-2 m-0">Selecciona una operacion para comenzar</p>
-        </div>
+        {mostrarSaludo && (
+          <div className="w-full max-w-sm bg-gray-800/50 border border-gray-700 rounded-2xl p-5 text-center relative">
+            <button
+              onClick={cerrarSaludo}
+              className="absolute top-2 right-3 text-gray-400 hover:text-white text-xl leading-none"
+            >
+              &times;
+            </button>
+            <p className="text-lg sm:text-xl text-purple-400 font-semibold m-0">Hola! Bienvenido a la app de Fisica</p>
+            <p className="text-sm text-gray-400 mt-2 m-0">Selecciona una operacion para comenzar</p>
+          </div>
+        )}
         <h1 className="text-2xl sm:text-4xl font-semibold text-white m-0">{actual.nombre}</h1>
         <div className="flex flex-col gap-3 items-center w-full max-w-sm">
           {actual.componente}
