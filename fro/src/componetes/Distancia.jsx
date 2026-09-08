@@ -6,7 +6,7 @@ export default function Distancia() {
     const [distancia, setDistancia] = useState(null);
 
     const calcularDistancia = async () => {
-        const res = await fetch("http://localhost:3000/fisica/distancia", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/fisica/distancia`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
