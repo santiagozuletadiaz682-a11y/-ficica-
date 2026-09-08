@@ -6,7 +6,7 @@ export default function Densidad() {
     const [densidad, setDensidad] = useState(null);
 
     const calcularDensidad = async () => {
-        const densidadCalculada = await fetch(`${import.meta.env.VITE_API_URL}/fisica/densidad`, {
+        const densidadCalculada = await fetch("/api/fisica/densidad", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

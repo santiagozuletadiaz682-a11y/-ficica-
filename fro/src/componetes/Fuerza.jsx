@@ -6,7 +6,7 @@ export default function Fuerza() {
     const [fuerza, setFuerza] = useState(null);
 
     const calcularFuerza = async () => {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/fisica/fuerza`, {
+        const res = await fetch("/api/fisica/fuerza", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

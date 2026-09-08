@@ -11,7 +11,7 @@ export default function Aceleracion() {
 
     const calcularAceleracion = async () => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/fisica/aceleracion`, {
+            const res = await fetch("/api/fisica/aceleracion", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

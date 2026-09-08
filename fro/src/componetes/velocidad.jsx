@@ -6,7 +6,7 @@ export default function Velocidad() {
   const [velocidad, setVelocidad] = useState(null);
 
   const calcularVelocidad = async () => {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/fisica/velocidad`, {
+    const res = await fetch("/api/fisica/velocidad", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

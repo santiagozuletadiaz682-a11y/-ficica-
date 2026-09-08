@@ -6,7 +6,7 @@ export default function Energia() {
     const [energia, setEnergia] = useState(null);
 
     const calcularEnergia = async () => {
-        const resultado = await fetch(`${import.meta.env.VITE_API_URL}/fisica/energia`, {
+        const resultado = await fetch("/api/fisica/energia", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
