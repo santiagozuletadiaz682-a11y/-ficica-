@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Velocidad from './componetes/velocidad'
 import Aceleracion from './componetes/Aceleración'
@@ -26,6 +26,12 @@ function App() {
     localStorage.setItem('saludoVisto', 'true')
     setMostrarSaludo(false)
   }
+
+  useEffect(() => {
+    if (mostrarSaludo) {
+      alert('Bienvenido a la app de Fisica')
+    }
+  }, [])
 
   const seleccionar = (id) => {
     setSeccionActiva(id)
